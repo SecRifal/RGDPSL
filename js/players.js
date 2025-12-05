@@ -29,16 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let challengesData = [];
     let memoryData = [];
     Promise.all([
-        fetch('https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/demons.json').then(r => r.json()),
-        fetch('https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/challenges.json').then(r => r.json()),
-        fetch('https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/memory.json').then(r => r.json())
+        fetch('https://raw.githubusercontent.com/SecRifal/jsons/main/demons.json').then(r => r.json()),
+        fetch('https://raw.githubusercontent.com/SecRifal/jsons/main/challenges.json').then(r => r.json()),
+        fetch('https://raw.githubusercontent.com/SecRifal/jsons/main/memory.json').then(r => r.json())
     ]).then(([demons, challenges, memory]) => {
         demonsData = demons;
         challengesData = challenges;
         memoryData = memory;
 
         // Load players after levels
-        fetch('https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/players.json').then(r => r.json()).then(data => {
+        fetch('https://raw.githubusercontent.com/SecRifal/jsons/main/players.json').then(r => r.json()).then(data => {
             playersData = data.map(player => {
                 const stars = player.completedLevels.reduce((sum, cl) => {
                     const demon = demonsData.find(d => d.name === cl.name);
@@ -57,6 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render players
     function renderPlayers(players) {
         levelsContainer.innerHTML = '';
+        if (players.length === 0) {
+            levelsContainer.innerHTML = '<div class="no-levels-message">Пока что нет игроков</div>';
+            return;
+        }
         players.forEach((player, index) => {
             const position = playersData.indexOf(player) + 1;
             const nextLevelStars = player.level * 50;
@@ -67,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             playerElement.id = `player-${player.name}`; // Add ID for highlighting
             playerElement.innerHTML = `
                 <div class="position">${position}</div>
-                <img src="https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/${player.avatar}" alt="${player.name}" class="level-image" onerror="this.src='https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/images/placeholder.png'">
+                <img src="https://raw.githubusercontent.com/SecRifal/jsons/main/${player.avatar}" alt="${player.name}" class="level-image" onerror="this.src='https://raw.githubusercontent.com/SecRifal/jsons/main/images/placeholder.png'">
                 <div class="level-details">
                     <div class="level-name">${player.name}</div>
                     <div class="level-id">Уровень: ${player.level}</div>
@@ -117,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalBody.innerHTML = `
             <h2>#${position}</h2>
             <div class="player-header">
-                <img src="https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/images/players/${player.name}.png" alt="${player.name}" onerror="this.src='https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/images/placeholder.png'" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 20px;">
+                <img src="https://raw.githubusercontent.com/SecRifal/jsons/main/images/players/${player.name}.png" alt="${player.name}" onerror="this.src='https://raw.githubusercontent.com/SecRifal/jsons/main/images/placeholder.png'" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 20px;">
                 <h3>${player.name}</h3>
             </div>
             <div class="progress-wrapper">
@@ -221,8 +225,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const distance = Math.sqrt((mouseX - centerX) ** 2 + (mouseY - centerY) ** 2);
                 const maxDistance = 200;
                 const intensity = Math.max(0, 1 - distance / maxDistance);
-                letter.style.textShadow = `0 0 ${intensity * 20}px rgba(255, 165, 0, ${intensity})`;
-                letter.style.color = `rgba(255, ${255 - intensity * 90}, 0, 1)`;
+                letter.style.textShadow = `0 0 ${intensity * 20}px rgba(178, 34, 52, ${intensity})`;
+                letter.style.color = `rgba(${255 - intensity * 77}, ${255 - intensity * 221}, ${255 - intensity * 203}, 1)`;
             });
         });
     }

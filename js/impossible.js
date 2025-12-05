@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Загрузка данных
-    fetch('https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/impossible.json')
+    fetch('https://raw.githubusercontent.com/SecRifal/jsons/main/impossible.json')
         .then(response => response.json())
         .then(data => {
             impossibleData = data.sort((a, b) => (a.position || 999) - (b.position || 999)); // Sort by position
@@ -38,16 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Пытаемся загрузить PNG сначала
         let triedJPG = false;
-        img.src = `https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/images/impossible/${levelName}.png`;
+        img.src = `https://raw.githubusercontent.com/SecRifal/jsons/main/images/impossible/${levelName}.png`;
 
         img.onerror = function() {
             if (!triedJPG) {
                 // Если PNG не найден, пробуем JPG
                 triedJPG = true;
-                this.src = `https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/images/impossible/${levelName}.jpg`;
+                this.src = `https://raw.githubusercontent.com/SecRifal/jsons/main/images/impossible/${levelName}.jpg`;
             } else {
                 // Если и JPG не найден, используем placeholder
-                this.src = 'https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/images/placeholder.png';
+                this.src = 'https://raw.githubusercontent.com/SecRifal/jsons/main/images/placeholder.png';
                 this.onerror = null; // Останавливаем дальнейшие попытки
             }
         };
@@ -58,6 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Функция рендера уровней
     function renderLevels(levels) {
         levelsContainer.innerHTML = '';
+        if (levels.length === 0) {
+            levelsContainer.innerHTML = '<div class="no-levels-message">Пока что нет уровней</div>';
+            return;
+        }
         levels.forEach((level) => {
             const levelElement = document.createElement('div');
             levelElement.classList.add('level-item');
@@ -226,8 +230,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const distance = Math.sqrt((mouseX - centerX) ** 2 + (mouseY - centerY) ** 2);
                 const maxDistance = 200; // radius
                 const intensity = Math.max(0, 1 - distance / maxDistance);
-                letter.style.textShadow = `0 0 ${intensity * 20}px rgba(255, 165, 0, ${intensity})`;
-                letter.style.color = `rgba(255, ${255 - intensity * 90}, 0, 1)`; // White to orange
+                letter.style.textShadow = `0 0 ${intensity * 20}px rgba(178, 34, 52, ${intensity})`;
+                letter.style.color = `rgba(${255 - intensity * 77}, ${255 - intensity * 221}, ${255 - intensity * 203}, 1)`; // White to red
             });
         });
     }

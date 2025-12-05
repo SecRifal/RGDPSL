@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let memoryData = [];
 
     // Загрузка данных
-    fetch('https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/memory.json')
+    fetch('https://raw.githubusercontent.com/SecRifal/jsons/main/memory.json')
         .then(response => response.json())
         .then(data => {
             memoryData = data.sort((a, b) => b.stars - a.stars); // Сортировка по stars убывающей
@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Функция рендера уровней
     function renderLevels(levels) {
         levelsContainer.innerHTML = '';
+        if (levels.length === 0) {
+            levelsContainer.innerHTML = '<div class="no-levels-message">Пока что нет уровней</div>';
+            return;
+        }
         levels.forEach((level, index) => {
             const position = memoryData.indexOf(level) + 1;
             const levelElement = document.createElement('div');
@@ -48,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             levelElement.innerHTML = `
                 <div class="position">${position}</div>
-                <img src="https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/images/memory/${level.name}.png" alt="${level.name}" class="level-image" onerror="this.src='https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/images/placeholder.png'">
+                <img src="https://raw.githubusercontent.com/SecRifal/jsons/main/images/memory/${level.name}.png" alt="${level.name}" class="level-image" onerror="this.src='https://raw.githubusercontent.com/SecRifal/jsons/main/images/placeholder.png'">
                 <div class="level-details">
                     <div class="level-name">${level.name}</div>
                     <div class="level-id">ID: ${level.levelID}</div>
@@ -97,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         modalBody.innerHTML = `
             <h2>${level.name} (#${position})</h2>
-            <img src="https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/images/memory/${level.name}.png" alt="${level.name}" class="level-modal-image" onerror="this.src='https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/images/placeholder.png'">
+            <img src="https://raw.githubusercontent.com/SecRifal/jsons/main/images/memory/${level.name}.png" alt="${level.name}" class="level-modal-image" onerror="this.src='https://raw.githubusercontent.com/SecRifal/jsons/main/images/placeholder.png'">
 
             <!-- Row 1: Stars | Level ID | Difficulty -->
             <div class="modal-info-row-1">
@@ -153,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const nickname = e.target.dataset.nickname;
                 if (nickname && nickname !== 'Не указан') {
                     // Check if player exists before navigating
-                    fetch('https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/players.json')
+                    fetch('https://raw.githubusercontent.com/SecRifal/jsons/main/players.json')
                         .then(r => r.json())
                         .then(players => {
                             const playerExists = players.some(player => player.name === nickname);
@@ -179,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const levelName = level ? level.name : 'Уровень';
 
         // Load players
-        fetch('https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/players.json')
+        fetch('https://raw.githubusercontent.com/SecRifal/jsons/main/players.json')
             .then(r => r.json())
             .then(players => {
                 const victors = players.flatMap(player =>
@@ -306,10 +310,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const mouseX = e.clientX;
                 const mouseY = e.clientY;
                 const distance = Math.sqrt((mouseX - centerX) ** 2 + (mouseY - centerY) ** 2);
-                const maxDistance = 200;
+                const maxDistance = 200; // radius
                 const intensity = Math.max(0, 1 - distance / maxDistance);
-                letter.style.textShadow = `0 0 ${intensity * 20}px rgba(255, 165, 0, ${intensity})`;
-                letter.style.color = `rgba(255, ${255 - intensity * 90}, 0, 1)`;
+                letter.style.textShadow = `0 0 ${intensity * 20}px rgba(178, 34, 52, ${intensity})`;
+                letter.style.color = `rgba(${255 - intensity * 77}, ${255 - intensity * 221}, ${255 - intensity * 203}, 1)`; // White to red
             });
         });
     }

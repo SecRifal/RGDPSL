@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load levels data asynchronously
     Promise.all([
-        fetch('https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/demons.json').then(r => r.json()),
-        fetch('https://raw.githubusercontent.com/SecRifal/RGDPSJ/main/challenges.json').then(r => r.json())
+        fetch('https://raw.githubusercontent.com/SecRifal/jsons/main/demons.json').then(r => r.json()),
+        fetch('https://raw.githubusercontent.com/SecRifal/jsons/main/challenges.json').then(r => r.json())
     ]).then(([demons, challenges]) => {
         demons.forEach(d => allLevels.push({ name: d.name, type: 'Demon' }));
         challenges.forEach(c => allLevels.push({ name: c.name, type: 'Challenge' }));

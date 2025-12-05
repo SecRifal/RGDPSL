@@ -433,6 +433,20 @@ body::before {
     padding: 20px;
 }
 
+/* No levels message */
+.no-levels-message {
+    text-align: center;
+    font-size: 1.5em;
+    color: #ccc;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(15, 15, 15, 0.9) 100%);
+    border: 2px solid rgba(178, 34, 52, 0.15);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    animation: fadeInUp 0.8s ease;
+    text-shadow: 0 0 10px rgba(178, 34, 52, 0.3);
+}
+
 .level-item {
     display: flex;
     align-items: center;
