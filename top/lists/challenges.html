@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../zlogo.png" type="image/png">
+    <link rel="stylesheet" href="../../css/general.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <script src="../../js/header.js"></script>
+    <title>Челлендж Лист - RGDPSL</title>
+</head>
+<body>
+
+    <!-- Поиск -->
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Поиск уровней..." />
+    </div>
+
+    <!-- Контейнер для списка уровней -->
+    <div class="levels-container" id="levels-container"></div>
+
+    <!-- Кнопка вверх -->
+    <button class="scroll-to-top" id="scroll-to-top"><span class="arrow">&#x25B2;</span></button>
+
+    <!-- Modern Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Brand Section -->
+                <div class="footer-section footer-brand">
+                    <div class="footer-logo">
+                        <img src="../../zlogo.png" alt="RGDPSL Logo">
+                        <div class="footer-brand-text">RGDPSL</div>
+                    </div>
+                    <p><strong>Real Geometry Dash Private Server List</strong> - Оффициальные листы RGDPS`а</p>
+                </div>
+
+                <!-- Navigation Section -->
+                <div class="footer-section footer-nav">
+                    <h3>Листы</h3>
+                    <ul class="footer-nav-list">
+                        <li><a href="../lists/demons.html">Демон Лист</a></li>
+                        <li><a href="../lists/challenges.html">Челлендж Лист</a></li>
+                        <li><a href="../lists/memory.html">Мемори Челлендж Лист</a></li>
+                        <li><a href="../lists/players.html">Рейтинг Игроков</a></li>
+                        <li><a href="../lists/impossible.html">Импосибл Левел Лист</a></li>
+                        <li><a href="../../">Главная</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="footer-section footer-contact">
+                    <h3>Владелец и создатель листа:</h3>
+                    <div class="footer-contact-item">
+                        <span>SecRifal</span>
+                    </div>
+                </div>
+
+                <!-- Social Links Section -->
+                <div class="footer-section footer-social">
+                    <h3>Контакты RGDPS</h3>
+                    <div class="footer-social-links">
+                        <a href="https://discord.gg/UJmYDnwz2X" target="_blank" class="social-link-modern">
+                            <img src="../../contacts/ds.png" alt="Discord">
+                        </a>
+                        <a href="https://www.youtube.com/@SecRifaI" target="_blank" class="social-link-modern">
+                            <img src="../../contacts/yt.png" alt="YouTube">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2025 <span class="highlight">RGDPSL</span> | Все права защищены. Создано с ❤️ для сообщества RGDPS.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="../../js/menu.js"></script>
+    <script src="../../js/challenges.js"></script>
+
+</body>
+</html>

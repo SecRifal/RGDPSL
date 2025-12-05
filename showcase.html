@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="zlogo.png" type="image/png">
+    <link rel="stylesheet" href="../../css/general.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <title>Отправить Шоукейс - RGDPSL</title>
+</head>
+<body>
+
+    <!-- Верхушка -->
+    <header class="top">
+        <!-- Центрированные менюшки -->
+        <div class="center-menus">
+            <!-- Листы -->
+            <div class="menu-item lists">
+                <div class="menu-header" onclick="toggleMenu('lists')">Листы</div>
+                <div class="submenu" id="lists-submenu">
+                    <a href="top/lists/demons.html" class="demons">Демон Лист</a>
+                    <a href="top/lists/challenges.html" class="challenges">Челлендж Лист</a>
+                    <a href="top/lists/memory.html" class="memory">Мемори Челлендж Лист</a>
+                    <a href="top/lists/players.html" class="players">Рейтинг Игроков</a>
+                    <a href="top/lists/impossible.html" class="impossible">Импосибл Левел Лист</a>
+                </div>
+            </div>
+
+            <!-- Реквесты -->
+            <div class="menu-item requests">
+                <div class="menu-header" onclick="toggleMenu('requests')">Реквесты</div>
+                <div class="submenu" id="requests-submenu">
+                    <a href="level.html" class="req-Level">Заявка на уровень</a>
+                    <a href="verif.html" class="req-Verif">Отправить Вериф</a>
+                    <a href="victor.html" class="req-Victor">Отправить Виктор</a>
+                    <a href="showcase.html" class="req-Showcase">Отправить Шоукейс</a>
+                    <a href="impossible-request.html" class="req-Impossible">Заявка на Импосибл</a>
+                    <a href="registration.html" class="reg">Попасть в топ игроков</a>
+                </div>
+            </div>
+
+            <!-- Дополнительное -->
+            <div class="menu-item more">
+                <div class="menu-header" onclick="toggleMenu('more')">Ещё</div>
+                <div class="submenu" id="more-submenu">
+                    <a href="top/more/about.html" class="about">Информация</a>
+                    <a href="top/more/contact.html" class="contact">Контакты</a>
+                    <a href="top/more/changelog.html" class="changelog">Чейндж-Лог</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Форма заявки -->
+    <div class="reg-container">
+        <div class="reg-form">
+            <h1 class="hero-title">Отправить Шоукейс</h1>
+            <p class="hero-subtitle">Заполните форму для отправки шоукейса</p>
+            <form id="showcase-form">
+                <div class="form-group">
+                    <label for="level-name">Название уровня:</label>
+                    <input type="text" id="level-name" name="level-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="level-link">Ссылка на видео:</label>
+                    <input type="url" id="level-link" name="level-link" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Заметки (необязательно):</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Любые дополнительные замечания..."></textarea>
+                </div>
+
+                <button type="submit" class="universal-button">Отправить</button>
+            </form>
+            <div id="success-msg" style="display: none;">Заявка отправлена! Ожидайте подтверждения.</div>
+        </div>
+    </div>
+
+    <script src="../../js/menu.js"></script>
+    <script src="../../js/showcase.js"></script>
+
+</body>

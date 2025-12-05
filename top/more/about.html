@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../zlogo.png" type="image/png">
+    <link rel="stylesheet" href="../../css/general.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <title>Информация - RGDPSL</title>
+</head>
+<body>
+
+    <!-- Верхушка -->
+    <header class="top">
+        <!-- Центрированные менюшки -->
+        <div class="center-menus">
+            <!-- Листы -->
+            <div class="menu-item lists">
+                <div class="menu-header" onclick="toggleMenu('lists')">Листы</div>
+                <div class="submenu" id="lists-submenu">
+                    <a href="../lists/demons.html" class="demons">Демон Лист</a>
+                    <a href="../lists/challenges.html" class="challenges">Челлендж Лист</a>
+                    <a href="../lists/memory.html" class="memory">Мемори челлендж Лист</a>
+                    <a href="../lists/players.html" class="players">Рейтинг Игроков</a>
+                    <a href="../lists/impossible.html" class="impossible">Импосибл Левел Лист</a>
+                </div>
+            </div>
+
+            <!-- Реквесты -->
+            <div class="menu-item requests">
+                <div class="menu-header" onclick="toggleMenu('requests')">Реквесты</div>
+                <div class="submenu" id="requests-submenu">
+                    <a href="../../level.html" class="req-Level">Заявка на уровень</a>
+                    <a href="../../verif.html" class="req-Verif">Отправить Вериф</a>
+                    <a href="../../victor.html" class="req-Victor">Отправить Виктор</a>
+                    <a href="../../showcase.html" class="req-Showcase">Отправить Шоукейс</a>
+                    <a href="../../impossible-request.html" class="req-Impossible">Заявка на Импосибл</a>
+                    <a href="../../registration.html" class="reg">Попасть в топ игроков</a>
+                </div>
+            </div>
+
+            <!-- Дополнительное -->
+            <div class="menu-item more">
+                <div class="menu-header" onclick="toggleMenu('more')">Ещё</div>
+                <div class="submenu" id="more-submenu">
+                    <a href="about.html" class="about">Информация</a>
+                    <a href="contact.html" class="contact">Контакты</a>
+                    <a href="changelog.html" class="changelog">Чейндж-Лог</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <div class="content-container">
+        <div class="info-section" style="animation-delay: 0.1s;">
+            <h1 class="info-title">Правила попадания</h1>
+            <div class="buttons-line">
+                <button class="universal-button" onclick="openCustomModal('Правила попадания в рейтинг игроков', '1. Должно быть наличие хотя бы 1 пройденого уровня.\n2. Каждый пройденый уровень должен иметь запись с кликами.\n3. Ник или аватар не должны иметь каких либо оскорблений, порнографии и т.д.')">Правила попадания в рейтинг игроков</button>
+                <button class="universal-button" onclick="openCustomModal('Правила добавления уровня в лист', '1. Должна быть подтверждена верификация. \(Кроме изи-медиум демонов и лёгких челленджей.\)\n2. Уровень не должен быть Unlisted.\n3. Должны соблюдаться правила уровней GDPS. \(Подробнее можно узнать в Discord сервере.\)')">Правила добавления уровня в лист</button>
+                <button class="universal-button" onclick="openCustomModal('Правила отправки прохождения', '1. Должно быть наличие кликов.\n2. У вас должен быть акаунт в рейтинге игроков.')">Правила отправки прохождения</button>
+            </div>
+        </div>
+
+        <div class="info-section" style="animation-delay: 0.2s;">
+            <h1 class="info-title">Политика, разрешения и отказ от ответственности</h1>
+            <p class="info-text" style="margin-bottom: 0;">Этот проект является некоммерческим фан-сайтом и не аффилирован с официальными сервисами.<br>Все материалы (скриншоты, изображения, ссылки на видео) сделаны владельцом сайта, либо наданы правообладателем.<br>Сайт не собирает и не хранит личные данные пользователей самостоятельно.<br>Сайт может содержать ссылки на внешние ресурсы. Мы не несем ответственность за содержимое и политику конфиденциальности сторонних сайтов.</p>
+        </div>
+
+        <div class="info-section" style="animation-delay: 0.2s;">
+            <h1 class="info-title">Как связаться</h1>
+            <p class="info-text" style="margin-bottom: 0;">Если у вас есть вопросы, жалобы по авторским правам или предложения — свяжитесь через Discord: <a href="https://discord.com/users/953250604665430041" class="SecRifal-Link">SecRifal</a><br> Мы постараемся ответить как можно скорее.</p>
+        </div>
+    </div>
+
+    <!-- Modal for rules -->
+    <div id="rules-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-rules-modal" class="close-modal">&times;</span>
+            <div id="rules-modal-body"></div>
+        </div>
+    </div>
+
+    <script src="../../js/menu.js"></script>
+
+    <script>
+        // Modal variables
+        const rulesModal = document.getElementById('rules-modal');
+        const closeRulesModal = document.getElementById('close-rules-modal');
+        const rulesModalBody = document.getElementById('rules-modal-body');
+
+        // Function to open custom modal
+        function openCustomModal(title, content) {
+            rulesModalBody.innerHTML = `<h2>${title}</h2><p>${content.replace(/\n/g, '<br>')}</p>`;
+            rulesModal.style.display = 'block';
+            // Apply text glow effect if needed, but for simplicity, skip for now
+        }
+
+        // Close modal on click
+        closeRulesModal.addEventListener('click', () => {
+            rulesModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target == rulesModal) {
+                rulesModal.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
