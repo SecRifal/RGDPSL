@@ -2601,6 +2601,31 @@ body.dark-theme .theme-toggle:hover {
     box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
 }
 
+/* Dark theme styles for form elements */
+body.dark-theme .form-group input,
+body.dark-theme .form-group select,
+body.dark-theme .form-group textarea {
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.08) 0%, rgba(138, 43, 226, 0.05) 100%);
+    border-color: rgba(138, 43, 226, 0.3);
+    color: #fff;
+}
+
+body.dark-theme .form-group input:focus,
+body.dark-theme .form-group select:focus,
+body.dark-theme .form-group textarea:focus {
+    border-color: #8a2be2;
+    box-shadow:
+        0 0 15px rgba(138, 43, 226, 0.4),
+        0 4px 15px rgba(138, 43, 226, 0.2),
+        inset 0 1px 3px rgba(138, 43, 226, 0.1);
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.12) 0%, rgba(138, 43, 226, 0.08) 100%);
+}
+
+body.dark-theme .form-group label {
+    color: #8a2be2;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
+}
+
 body.dark-theme .theme-icon {
     color: #8a2be2;
 }
