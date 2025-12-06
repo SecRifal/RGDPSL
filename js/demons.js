@@ -315,7 +315,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const maxDistance = 200; // radius
                 const intensity = Math.max(0, 1 - distance / maxDistance);
                 letter.style.textShadow = `0 0 ${intensity * 20}px rgba(178, 34, 52, ${intensity})`;
-                letter.style.color = `rgba(${255 - intensity * 77}, ${255 - intensity * 221}, ${255 - intensity * 203}, 1)`; // White to red
+                // Check if dark theme is active
+                const isDarkTheme = document.body.classList.contains('dark-theme');
+                if (isDarkTheme) {
+                    // Purple color transition for dark theme
+                    letter.style.color = `rgba(${255 - intensity * 107}, ${255 - intensity * 213}, ${255 - intensity * 147}, 1)`;
+                } else {
+                    // Original red color transition for light theme
+                    letter.style.color = `rgba(${255 - intensity * 77}, ${255 - intensity * 221}, ${255 - intensity * 203}, 1)`;
+                }
             });
         });
     }

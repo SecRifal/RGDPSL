@@ -1,24 +1,79 @@
 // Function to determine hrefs based on current location
 function getHrefs() {
     const pathname = window.location.pathname;
-    const isInSubDir = pathname.includes('lists');
 
-    const demonsHref = isInSubDir ? 'demons.html' : 'top/lists/demons.html';
-    const challengesHref = isInSubDir ? 'challenges.html' : 'top/lists/challenges.html';
-    const memoryHref = isInSubDir ? 'memory.html' : 'top/lists/memory.html';
-    const playersHref = isInSubDir ? 'players.html' : 'top/lists/players.html';
-    const impossibleHref = isInSubDir ? 'impossible.html' : 'top/lists/impossible.html';
+    // Определяем текущую папку
+    let currentDir = '';
+    if (pathname.includes('/top/lists/')) {
+        currentDir = 'lists';
+    } else if (pathname.includes('/top/more/')) {
+        currentDir = 'more';
+    } else {
+        currentDir = 'root';
+    }
 
-    const levelHref = isInSubDir ? '../../level.html' : 'level.html';
-    const verifHref = isInSubDir ? '../../verif.html' : 'verif.html';
-    const victorHref = isInSubDir ? '../../victor.html' : 'victor.html';
-    const showcaseHref = isInSubDir ? '../../showcase.html' : 'showcase.html';
-    const impossibleRequestHref = isInSubDir ? '../../impossible-request.html' : 'impossible-request.html';
-    const registrationHref = isInSubDir ? '../../registration.html' : 'registration.html';
+    // Определяем пути в зависимости от текущей папки
+    let demonsHref, challengesHref, memoryHref, playersHref, impossibleHref;
+    let levelHref, verifHref, victorHref, showcaseHref, impossibleRequestHref, registrationHref;
+    let aboutHref, contactHref, changelogHref;
 
-    const aboutHref = isInSubDir ? '../more/about.html' : 'top/more/about.html';
-    const contactHref = isInSubDir ? '../more/contact.html' : 'top/more/contact.html';
-    const changelogHref = isInSubDir ? '../more/changelog.html' : 'top/more/changelog.html';
+    if (currentDir === 'lists') {
+        // Из папки lists/
+        demonsHref = 'demons.html';
+        challengesHref = 'challenges.html';
+        memoryHref = 'memory.html';
+        playersHref = 'players.html';
+        impossibleHref = 'impossible.html';
+
+        levelHref = '../../level.html';
+        verifHref = '../../verif.html';
+        victorHref = '../../victor.html';
+        showcaseHref = '../../showcase.html';
+        impossibleRequestHref = '../../impossible-request.html';
+        registrationHref = '../../registration.html';
+
+        aboutHref = '../more/about.html';
+        contactHref = '../more/contact.html';
+        changelogHref = '../more/changelog.html';
+
+    } else if (currentDir === 'more') {
+        // Из папки more/
+        demonsHref = '../lists/demons.html';
+        challengesHref = '../lists/challenges.html';
+        memoryHref = '../lists/memory.html';
+        playersHref = '../lists/players.html';
+        impossibleHref = '../lists/impossible.html';
+
+        levelHref = '../../level.html';
+        verifHref = '../../verif.html';
+        victorHref = '../../victor.html';
+        showcaseHref = '../../showcase.html';
+        impossibleRequestHref = '../../impossible-request.html';
+        registrationHref = '../../registration.html';
+
+        aboutHref = 'about.html';
+        contactHref = 'contact.html';
+        changelogHref = 'changelog.html';
+
+    } else {
+        // Из корневой папки
+        demonsHref = 'top/lists/demons.html';
+        challengesHref = 'top/lists/challenges.html';
+        memoryHref = 'top/lists/memory.html';
+        playersHref = 'top/lists/players.html';
+        impossibleHref = 'top/lists/impossible.html';
+
+        levelHref = 'level.html';
+        verifHref = 'verif.html';
+        victorHref = 'victor.html';
+        showcaseHref = 'showcase.html';
+        impossibleRequestHref = 'impossible-request.html';
+        registrationHref = 'registration.html';
+
+        aboutHref = 'top/more/about.html';
+        contactHref = 'top/more/contact.html';
+        changelogHref = 'top/more/changelog.html';
+    }
 
     return {
         demonsHref, challengesHref, memoryHref, playersHref, impossibleHref,
@@ -34,6 +89,11 @@ function insertHeader() {
     const headerHTML = `
     <!-- Верхушка -->
     <header class="top">
+        <!-- Кнопка смены темы -->
+        <div class="theme-toggle" onclick="toggleTheme()" title="Сменить тему">
+            <div class="theme-icon">🌙</div>
+        </div>
+
         <!-- Центрированные менюшки -->
         <div class="center-menus">
             <!-- Листы -->
@@ -78,5 +138,37 @@ function insertHeader() {
     document.body.insertAdjacentHTML('afterbegin', headerHTML);
 }
 
+// Theme toggle functionality
+function toggleTheme() {
+    const body = document.body;
+    const themeIcon = document.querySelector('.theme-icon');
+
+    if (body.classList.contains('dark-theme')) {
+        body.classList.remove('dark-theme');
+        themeIcon.textContent = '☀️'; // Show sun for light theme
+        localStorage.setItem('theme', 'light');
+    } else {
+        body.classList.add('dark-theme');
+        themeIcon.textContent = '🌙'; // Show moon for dark theme
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// Load saved theme on page load
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const themeIcon = document.querySelector('.theme-icon');
+
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        if (themeIcon) themeIcon.textContent = '🌙'; // Show moon for current dark theme
+    } else {
+        if (themeIcon) themeIcon.textContent = '☀️'; // Show sun for current light theme
+    }
+}
+
 // Call the function when DOM is ready
-document.addEventListener('DOMContentLoaded', insertHeader);
+document.addEventListener('DOMContentLoaded', function() {
+    insertHeader();
+    loadTheme();
+});

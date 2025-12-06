@@ -103,6 +103,40 @@ body::before {
     overflow: visible;
 }
 
+/* Theme toggle button */
+.theme-toggle {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    background: rgba(178, 34, 52, 0.1);
+    border: 1px solid rgba(178, 34, 52, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.theme-toggle:hover {
+    background: rgba(178, 34, 52, 0.2);
+    border-color: rgba(178, 34, 52, 0.5);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 10px rgba(178, 34, 52, 0.5);
+}
+
+.theme-icon {
+    font-size: 1.5vw;
+    color: #b22222;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.theme-toggle:hover .theme-icon {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(178, 34, 52, 0.8);
+}
+
 .top::before {
     content: '';
     position: absolute;
@@ -746,6 +780,10 @@ body::before {
     width: 40px;
     height: 2px;
     background: linear-gradient(to right, #b22222, rgba(178, 34, 52, 0));
+}
+
+body.dark-theme .footer-section h3::after {
+    background: linear-gradient(to right, #8a2be2, rgba(138, 43, 226, 0));
 }
 
 .footer-brand .footer-logo {
@@ -2467,3 +2505,639 @@ body::before {
 .level-item:nth-child(8) { animation-delay: 0.7s; }
 .level-item:nth-child(9) { animation-delay: 0.8s; }
 .level-item:nth-child(10) { animation-delay: 0.9s; }
+
+/* Dark Theme Styles - Purple Colors */
+body.dark-theme {
+    background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f0f23, #1e1e2f, #1a1a2e);
+    background-size: 400% 400%;
+}
+
+body.dark-theme::before {
+    background:
+        radial-gradient(circle at 20% 80%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(138, 43, 226, 0.05) 0%, transparent 50%);
+}
+
+body.dark-theme::before {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(138, 43, 226, 0.08) 20%,
+        rgba(138, 43, 226, 0.15) 30%,
+        rgba(138, 43, 226, 0.08) 40%,
+        transparent 60%
+    );
+}
+
+body.dark-theme .top {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.9) 50%, rgba(15, 15, 35, 0.95) 100%);
+    border-bottom: 1px solid rgba(138, 43, 226, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(138, 43, 226, 0.1);
+}
+
+body.dark-theme .submenu {
+    background-color: rgba(26, 26, 46, 0.95);
+    border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+body.dark-theme .submenu a:hover {
+    background-color: rgba(138, 43, 226, 0.3);
+    box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .menu-header {
+    background: linear-gradient(45deg, rgba(138, 43, 226, 0) 0%, rgba(138, 43, 226, 0.1) 50%, rgba(138, 43, 226, 0) 100%);
+    border: 1px solid rgba(138, 43, 226, 0.2);
+}
+
+body.dark-theme .menu-header::before {
+    background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.2), transparent);
+}
+
+body.dark-theme .menu-header:hover {
+    text-shadow:
+        0 2px 4px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(255, 0, 255, 0.8),
+        0 8px 16px rgba(138, 43, 226, 0.6),
+        0 12px 24px rgba(138, 43, 226, 0.4);
+    border-color: rgba(138, 43, 226, 0.5);
+    box-shadow:
+        0 4px 15px rgba(138, 43, 226, 0.3),
+        0 8px 25px rgba(138, 43, 226, 0.2),
+        inset 0 1px 0 rgba(138, 43, 226, 0.3);
+}
+
+body.dark-theme .universal-button {
+    background: linear-gradient(45deg, rgba(138, 43, 226, 0) 0%, rgba(138, 43, 226, 0.1) 50%, rgba(138, 43, 226, 0) 100%);
+    border: 1px solid rgba(138, 43, 226, 0.2);
+}
+
+body.dark-theme .universal-button::before {
+    background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.2), transparent);
+}
+
+body.dark-theme .universal-button:hover {
+    text-shadow:
+        0 2px 4px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(138, 43, 226, 0.8),
+        0 8px 16px rgba(138, 43, 226, 0.6),
+        0 12px 24px rgba(138, 43, 226, 0.4);
+    border-color: rgba(138, 43, 226, 0.5);
+    box-shadow:
+        0 4px 15px rgba(138, 43, 226, 0.3),
+        0 8px 25px rgba(138, 43, 226, 0.2),
+        inset 0 1px 0 rgba(138, 43, 226, 0.3);
+}
+
+body.dark-theme .theme-toggle {
+    background: rgba(138, 43, 226, 0.1);
+    border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+body.dark-theme .theme-toggle:hover {
+    background: rgba(138, 43, 226, 0.2);
+    border-color: rgba(138, 43, 226, 0.5);
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .theme-icon {
+    color: #8a2be2;
+}
+
+body.dark-theme .theme-toggle:hover .theme-icon {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .level-item {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.9) 100%);
+    border: 2px solid rgba(138, 43, 226, 0.15);
+}
+
+body.dark-theme .level-item:hover {
+    border-color: #8a2be2;
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.5), 0 2px 10px rgba(138, 43, 226, 0.7), 0 5px 20px rgba(138, 43, 226, 0.6), 0 10px 40px rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .position,
+body.dark-theme .xp,
+body.dark-theme .highlight,
+body.dark-theme .hero-title,
+body.dark-theme .footer-section h3,
+body.dark-theme .info-title,
+body.dark-theme .contact-title {
+    color: #8a2be2 !important;
+}
+
+/* Override hover colors for dark theme - more specific selectors */
+body.dark-theme .level-item:hover .position {
+    color: #8a2be2 !important;
+}
+
+body.dark-theme .level-item:hover .level-name {
+    color: #8a2be2 !important;
+}
+
+body.dark-theme .level-item:hover .creator {
+    color: #8a2be2 !important;
+}
+
+body.dark-theme .level-item:hover .verifier {
+    color: #8a2be2 !important;
+}
+
+body.dark-theme .level-item:hover .level-id {
+    color: #8a2be2 !important;
+}
+
+body.dark-theme .level-image {
+    border: 2px solid rgba(138, 43, 226, 0.3);
+}
+
+body.dark-theme .level-image:hover {
+    border-color: #8a2be2;
+    box-shadow: 0 0 50px rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .skillset-icon {
+    filter: drop-shadow(0 0 5px rgba(138, 43, 226, 0.3));
+}
+
+body.dark-theme .skillset-icon:hover {
+    filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.8)) brightness(1.2);
+}
+
+body.dark-theme .star-icon {
+    filter: drop-shadow(0 0 3px rgba(138, 43, 226, 0.5));
+}
+
+body.dark-theme .modal-content {
+    background: linear-gradient(135deg, rgba(15, 15, 35, 0.95) 0%, rgba(5, 5, 15, 0.95) 100%);
+    border: 2px solid rgba(138, 43, 226, 0.2);
+}
+
+body.dark-theme .footer {
+    background: linear-gradient(135deg, #0f0f23 0%, #0a0a1e 50%, #050514 100%);
+    border-top: 2px solid rgba(138, 43, 226, 0.3);
+}
+
+body.dark-theme .footer::before {
+    background: linear-gradient(90deg, rgba(138, 43, 226, 0) 0%, rgba(138, 43, 226, 0.8) 50%, rgba(138, 43, 226, 0) 100%);
+}
+
+body.dark-theme .social-link-modern {
+    background: rgba(138, 43, 226, 0.1);
+    border: 2px solid rgba(138, 43, 226, 0.3);
+}
+
+body.dark-theme .social-link-modern:hover {
+    border-color: #8a2be2;
+    background: rgba(138, 43, 226, 0.2);
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
+}
+
+body.dark-theme .social-link-modern img {
+    filter: drop-shadow(0 0 3px rgba(138, 43, 226, 0.3));
+}
+
+body.dark-theme .social-link-modern:hover img {
+    filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.8)) brightness(1.2);
+}
+
+body.dark-theme .info-section {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.9) 100%);
+    border: 2px solid rgba(138, 43, 226, 0.2);
+}
+
+body.dark-theme .info-section::before {
+    background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.8), transparent);
+}
+
+body.dark-theme .info-section:hover {
+    border-color: rgba(138, 43, 226, 0.4);
+    box-shadow:
+        0 8px 25px rgba(138, 43, 226, 0.15),
+        0 15px 35px rgba(138, 43, 226, 0.1),
+        0 25px 45px rgba(138, 43, 226, 0.05),
+        inset 0 1px 0 rgba(138, 43, 226, 0.1);
+}
+
+/* Staff colors remain unchanged in dark theme */
+
+body.dark-theme .progress {
+    background-color: rgba(138, 43, 226, 0.5);
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .scroll-to-top {
+    background-color: rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .scroll-to-top:hover {
+    background-color: #8a2be2;
+}
+
+/* Additional text-shadow overrides for dark theme */
+body.dark-theme .no-levels-message {
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
+}
+
+body.dark-theme .hero-title {
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .footer-section h3 {
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .social-link-modern:hover {
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .buttons-line .universal-button:hover,
+body.dark-theme .buttons-line button:hover {
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .victor-link:hover {
+    text-shadow: 0 0 8px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .level-link:hover {
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .hero-button:hover {
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .universal-button:hover {
+    text-shadow:
+        0 2px 4px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(138, 43, 226, 0.8),
+        0 8px 16px rgba(138, 43, 226, 0.6),
+        0 12px 24px rgba(138, 43, 226, 0.4);
+}
+
+body.dark-theme .copy-id.copied {
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .highlight {
+    text-shadow: 0 0 8px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .word .letter {
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
+}
+
+body.dark-theme .SecRifal-Link:hover {
+    text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #8a2be2, 0 -10px 20px #8a2be2, 0 -18px 40px #8a2be2;
+}
+
+body.dark-theme .level-item:hover {
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.5), 0 2px 10px rgba(138, 43, 226, 0.7), 0 5px 20px rgba(138, 43, 226, 0.6), 0 10px 40px rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .contact-title {
+    text-shadow: 0 -1px 4px rgba(255, 255, 255, 0.7), 0 -2px 10px rgba(138, 43, 226, 0.6), 0 -10px 20px rgba(138, 43, 226, 0.5), 0 -18px 40px rgba(138, 43, 226, 0.4);
+}
+
+body.dark-theme .hero-button {
+    background-color: rgba(138, 43, 226, 0.2);
+    border: 2px solid rgba(138, 43, 226, 0.5);
+    color: #8a2be2;
+}
+
+body.dark-theme .hero-button:hover {
+    background-color: rgba(138, 43, 226, 0.5);
+    border-color: #8a2be2;
+    color: white;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.8);
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+}
+
+/* Additional dark theme overrides for text shadows and animations */
+body.dark-theme .menu-header:hover {
+    text-shadow:
+        0 2px 4px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(138, 43, 226, 0.8),
+        0 8px 16px rgba(138, 43, 226, 0.6),
+        0 12px 24px rgba(138, 43, 226, 0.4);
+}
+
+body.dark-theme .universal-button:hover {
+    text-shadow:
+        0 2px 4px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(138, 43, 226, 0.8),
+        0 8px 16px rgba(138, 43, 226, 0.6),
+        0 12px 24px rgba(138, 43, 226, 0.4);
+}
+
+body.dark-theme .level-item:hover {
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.5), 0 2px 10px rgba(138, 43, 226, 0.7), 0 5px 20px rgba(138, 43, 226, 0.6), 0 10px 40px rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .info-title {
+    text-shadow:
+        0 2px 4px rgba(138, 43, 226, 0.3),
+        0 4px 8px rgba(138, 43, 226, 0.2),
+        0 8px 16px rgba(138, 43, 226, 0.1);
+}
+
+body.dark-theme .hero-title {
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .footer-section h3 {
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .contact-title {
+    text-shadow: 0 -1px 4px rgba(255, 255, 255, 0.7), 0 -2px 10px rgba(138, 43, 226, 0.6), 0 -10px 20px rgba(138, 43, 226, 0.5), 0 -18px 40px rgba(138, 43, 226, 0.4);
+}
+
+/* Staff name colors remain unchanged */
+
+body.dark-theme .version {
+    color: #8a2be2;
+}
+
+body.dark-theme .SecRifal-Link {
+    color: #8a2be2;
+}
+
+body.dark-theme .SecRifal-Link:hover {
+    text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #8a2be2, 0 -10px 20px #8a2be2, 0 -18px 40px #8a2be2;
+}
+
+body.dark-theme .word .letter {
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
+}
+
+body.dark-theme .no-levels-message {
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
+}
+
+body.dark-theme .changelog-date {
+    color: #8a2be2;
+}
+
+body.dark-theme #modal-body a:hover {
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .close-modal:hover {
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .copy-id.copied {
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .buttons-line .universal-button:hover,
+body.dark-theme .buttons-line button:hover {
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .victor-link:hover {
+    text-shadow: 0 0 8px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .level-link:hover {
+    color: #8a2be2;
+}
+
+body.dark-theme .modal-stars {
+    color: #8a2be2;
+}
+
+body.dark-theme .modal-diff-icon {
+    filter: drop-shadow(0 0 3px rgba(138, 43, 226, 0.5));
+}
+
+body.dark-theme .modal-skillset-icon {
+    filter: drop-shadow(0 0 5px rgba(138, 43, 226, 0.5));
+}
+
+body.dark-theme .modal-skillset-icon:hover {
+    filter: drop-shadow(0 0 10px rgb(138, 43, 226)) brightness(1.2);
+}
+
+body.dark-theme .star-icon {
+    filter: drop-shadow(0 0 3px rgba(138, 43, 226, 0.5));
+}
+
+body.dark-theme .difficulty-icon {
+    filter: drop-shadow(0 0 3px rgba(138, 43, 226, 0.5));
+}
+
+body.dark-theme .social-icons a:hover {
+    box-shadow:
+        0 8px 20px rgba(138, 43, 226, 0.4),
+        0 12px 30px rgba(138, 43, 226, 0.3),
+        0 18px 40px rgba(138, 43, 226, 0.2);
+}
+
+body.dark-theme .social-icons img {
+    filter: drop-shadow(0 0 4px rgba(138, 43, 226, 0.3));
+}
+
+body.dark-theme .social-icons a:hover img {
+    filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.9)) brightness(1.2);
+}
+
+/* Additional hover effects for dark theme */
+body.dark-theme .level-item:hover .level-name,
+body.dark-theme .level-item:hover .position,
+body.dark-theme .level-item:hover .creator,
+body.dark-theme .level-item:hover .verifier,
+body.dark-theme .level-item:hover .level-id {
+    color: #8a2be2 !important;
+}
+
+body.dark-theme .level-image:hover {
+    border-color: #8a2be2 !important;
+    box-shadow: 0 0 50px rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .footer-nav-list a:hover {
+    color: #8a2be2;
+}
+
+body.dark-theme .social-link-modern:hover {
+    border-color: #8a2be2;
+    background: rgba(138, 43, 226, 0.2);
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
+}
+
+body.dark-theme .social-link-modern:hover img {
+    filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.8)) brightness(1.2);
+}
+
+body.dark-theme .hero-button:hover {
+    background-color: rgba(138, 43, 226, 0.5);
+    border-color: #8a2be2;
+    color: white;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.8);
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .social-icons a:hover {
+    border-color: #8a2be2;
+    background: rgba(138, 43, 226, 0.2);
+    box-shadow:
+        0 8px 20px rgba(138, 43, 226, 0.4),
+        0 12px 30px rgba(138, 43, 226, 0.3),
+        0 18px 40px rgba(138, 43, 226, 0.2);
+}
+
+body.dark-theme .close-modal:hover {
+    color: #8a2be2;
+    background: rgba(138, 43, 226, 0.2);
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme #modal-body a:hover {
+    background-color: rgba(138, 43, 226, 0.5);
+    border-color: #8a2be2;
+    color: white;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .copy-id:hover {
+    background-color: rgba(138, 43, 226, 0.3);
+}
+
+body.dark-theme .level-link:hover,
+body.dark-theme .victor-link:hover,
+body.dark-theme .clickable-nickname:hover {
+    color: #8a2be2;
+}
+
+body.dark-theme .buttons-line .universal-button:hover,
+body.dark-theme .buttons-line button:hover {
+    background-color: rgba(138, 43, 226, 0.5);
+    border-color: #8a2be2;
+    color: white;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme #add-completion:hover {
+    background-color: rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .scroll-to-top:hover {
+    background-color: #8a2be2;
+}
+
+/* Modal animations and effects for dark theme */
+body.dark-theme .modal-content {
+    background: linear-gradient(135deg, rgba(15, 15, 35, 0.95) 0%, rgba(5, 5, 15, 0.95) 100%);
+    border: 2px solid rgba(138, 43, 226, 0.2);
+}
+
+body.dark-theme .modal-content::-webkit-scrollbar-track {
+    background: rgba(138, 43, 226, 0.1);
+}
+
+body.dark-theme .modal-content::-webkit-scrollbar-thumb {
+    background: rgba(138, 43, 226, 0.3);
+}
+
+body.dark-theme .modal-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .modal-content::before {
+    background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.8), transparent);
+}
+
+body.dark-theme .close-modal {
+    color: #aaa;
+    background: rgba(138, 43, 226, 0.1);
+}
+
+body.dark-theme .close-modal:hover {
+    color: #8a2be2;
+    background: rgba(138, 43, 226, 0.2);
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .modal-verifier,
+body.dark-theme .modal-creator {
+    color: #ccc;
+}
+
+body.dark-theme .modal-id {
+    color: #ccc;
+}
+
+body.dark-theme .level-modal-image:hover {
+    border-color: rgba(138, 43, 226, 0.8);
+    box-shadow:
+        0 0 25px rgba(138, 43, 226, 0.4),
+        0 0 50px rgba(138, 43, 226, 0.2),
+        inset 0 0 20px rgba(138, 43, 226, 0.1);
+}
+
+body.dark-theme .level-modal-image:hover {
+    animation: pulseVideo 2s ease-in-out infinite;
+}
+
+body.dark-theme #modal-body h2 {
+    color: #8a2be2;
+}
+
+body.dark-theme #modal-body p {
+    color: #ccc;
+}
+
+body.dark-theme #modal-body a {
+    background-color: rgba(138, 43, 226, 0.2);
+    border: 1px solid rgba(138, 43, 226, 0.5);
+    color: #8a2be2;
+}
+
+body.dark-theme #modal-body a:hover {
+    background-color: rgba(138, 43, 226, 0.5);
+    border-color: #8a2be2;
+    color: white;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.8);
+}
+
+body.dark-theme .modal-info-row-1 {
+    background-color: rgba(138, 43, 226, 0.1);
+}
+
+body.dark-theme .modal-skillsets-bottom {
+    border-top: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+/* Additional animations and keyframes for dark theme */
+body.dark-theme .level-item::before {
+    background: linear-gradient(180deg,
+        transparent 0%,
+        rgba(138, 43, 226, 0.3) 50%,
+        transparent 100%);
+}
+
+/* Fix header loading issue - ensure theme toggle appears */
+.theme-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ensure header is properly loaded on all pages */
+body.dark-theme .theme-toggle {
+    background: rgba(138, 43, 226, 0.1);
+    border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+body.dark-theme .theme-toggle:hover {
+    background: rgba(138, 43, 226, 0.2);
+    border-color: rgba(138, 43, 226, 0.5);
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
