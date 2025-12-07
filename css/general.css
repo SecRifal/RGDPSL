@@ -2601,6 +2601,28 @@ body.dark-theme .theme-toggle:hover {
     box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
 }
 
+/* Logo styling */
+.logo-image {
+    border-radius: 15px;
+    border: 2px solid rgba(178, 34, 52, 0.5);
+    transition: all 0.3s ease;
+}
+
+.logo-image:hover {
+    border-color: rgba(178, 34, 52, 0.8);
+    box-shadow: 0 0 15px rgba(178, 34, 52, 0.5);
+    transform: scale(1.05);
+}
+
+body.dark-theme .logo-image {
+    border-color: rgba(138, 43, 226, 0.5);
+}
+
+body.dark-theme .logo-image:hover {
+    border-color: rgba(138, 43, 226, 0.8);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+}
+
 /* Dark theme styles for form elements */
 body.dark-theme .form-group input,
 body.dark-theme .form-group select,
@@ -2658,6 +2680,11 @@ body.dark-theme .contact-title {
 /* Override hover colors for dark theme - more specific selectors */
 body.dark-theme .level-item:hover .position {
     color: #8a2be2 !important;
+    text-shadow:
+        0 0 10px rgb(138, 43, 226),
+        0 0 20px rgba(138, 43, 226, 0.8),
+        0 0 30px rgba(138, 43, 226, 0.6),
+        0 0 40px rgba(138, 43, 226, 0.4);
 }
 
 body.dark-theme .level-item:hover .level-name {
